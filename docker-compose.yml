@@ -38,6 +38,7 @@ services:
     volumes:
       - .:/application:cached
       - ./.docker/php-fpm/php-ini-overrides.ini:/etc/php/7.1/fpm/conf.d/99-overrides.ini
+      - ./.docker/php-fpm/php-ini-overrides.ini:/etc/php/7.1/cli/conf.d/99-overrides.ini
     links:
      - mariadb:mariadb
      - redis:redis

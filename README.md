@@ -38,7 +38,7 @@ echo 'memory_limit = 512M' >> /usr/local/etc/php/conf.d/docker-php-memlimit.ini;
 service apache2 reload
 
 #run installer
-./vendor/bin/pimcore-install --mysql-host-socket=db
+./vendor/bin/pimcore-install --mysql-host-socket=db --mysql-username=pimcore --mysql-password=pimcore --mysql-database=pimcore 
 
  ```
 

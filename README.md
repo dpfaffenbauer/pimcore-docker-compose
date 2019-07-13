@@ -46,3 +46,17 @@ service apache2 reload
 After the installer is finished, you can open in your Browser:
 * Frontend: http://localhost:2000
 * Backend: http://localhost:2000/admin
+
+### Common Errors 
+
+#### File permissions 
+On some machines docker has problems with the relative symlinked (static) files. Run those commands in your `pimcore-php` container 
+
+```bash 
+docker-compose exec php bash 
+chown www-data: . -R 
+```
+
+This could take a while because of the amount of files inside the directory (especially because of the `vendor` folder). There is no guarantee that those commands on all machines and operating systems. 
+
+

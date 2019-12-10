@@ -3,7 +3,7 @@ Simple and easy Docker-Compose configuration for Pimcore 5 and Pimcore 6.
 
 Docker-Compose consists of the following images:
  - Redis
- - MariaDB 10.1
+ - MariaDB 10.4
  - httpd (Apache 2.4) & PHP-FPM with PHP7.2 and all Pimcore required dependencies (LibreOffice, FFMPEG, Image Libraries, etc)
  - PHP-FPM with PHP7.2 and all Pimcore required dependencies (LibreOffice, Image Libraries, etc) (except FFMPEG)
  

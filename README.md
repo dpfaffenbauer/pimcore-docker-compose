@@ -33,7 +33,7 @@ https://pimcore.com/docs/6.x/Development_Documentation/Getting_Started/Installat
 docker exec -it pimcore-php bash
 
 # replace <yourpackage> with the package you with to install
-# for example COMPOSER_MEMORY_LIMIT=-1 composer create-project pimcore/demo-ecommerce tmp
+# for example COMPOSER_MEMORY_LIMIT=-1 composer create-project pimcore/demo tmp
 COMPOSER_MEMORY_LIMIT=-1 composer create-project pimcore/<yourpackage> tmp
 mv tmp/.[!.]* .
 

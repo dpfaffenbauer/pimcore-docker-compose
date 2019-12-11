@@ -36,6 +36,8 @@ docker exec -it pimcore-php bash
 # for example COMPOSER_MEMORY_LIMIT=-1 composer create-project pimcore/demo tmp
 COMPOSER_MEMORY_LIMIT=-1 composer create-project pimcore/<yourpackage> tmp
 mv tmp/.[!.]* .
+mv tmp/* .
+rmdir tmp
 
 #increase the memory_limit to >= 512MB as required by pimcore-install
 echo 'memory_limit = 512M' >> /usr/local/etc/php/conf.d/docker-php-memlimit.ini;

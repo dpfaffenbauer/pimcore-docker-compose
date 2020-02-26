@@ -10,11 +10,15 @@ Docker-Compose consists of the following images:
 ## Getting Started
 ### Requirements
 * git
+https://help.ubuntu.com/lts/serverguide/git.html
 * docker
-* docker-compose
+https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-18-04
+* docker-compose for linux
+https://docs.docker.com/compose/install/
+
 ### Checkout Repo
 ```bash
-git clone https://github.com/dpfaffenbauer/pimcore-docker-compose.git
+git clone https://github.com/jagi-bonn-gmbh/pimcore-docker-compose.git
 cd pimcore-docker-compose/
  ```
 ### Run Containers
@@ -23,24 +27,26 @@ cd pimcore-docker-compose/
 docker-compose up -d
 ```
 ### Install Pimcore 
-Choose which package to install
-#### Pimcore 5 
-https://pimcore.com/docs/5.x/Development_Documentation/Getting_Started/Installation.html#page_Choose-a-package-to-install
-#### Pimcore 6
+Install Pimcore 6 with skeleton package
+
+#### Install Pimcore 6
 https://pimcore.com/docs/6.x/Development_Documentation/Getting_Started/Installation.html#page_Choose-a-package-to-install
 ```bash
 # get shell in running container
 docker exec -it pimcore-php bash
 
 # replace <yourpackage> with the package you with to install
-# for example COMPOSER_MEMORY_LIMIT=-1 composer create-project pimcore/demo tmp
-COMPOSER_MEMORY_LIMIT=-1 composer create-project pimcore/<yourpackage> tmp
-mv tmp/.[!.]* .
-mv tmp/* .
-rmdir tmp
+# for example COMPOSER_MEMORY_LIMIT=-1 composer create-project pimcore/demo jagi-pimcore
+COMPOSER_MEMORY_LIMIT=-1 composer create-project pimcore/skeleton my-project
+mv jagi-pimcore/.[!.]* .
+mv jagi-pimcore/* .
+rmdir jagi-pimcore
 
 #increase the memory_limit to >= 512MB as required by pimcore-install
+#increase the post_max_size AND upload_max_filesize to >= 512MB to allow bigger files
 echo 'memory_limit = 512M' >> /usr/local/etc/php/conf.d/docker-php-memlimit.ini;
+echo 'post_max_size = 512M' >> /usr/local/etc/php/conf.d/docker-php-memlimit.ini;
+echo 'upload_max_filesize = 512M' >> /usr/local/etc/php/conf.d/docker-php-memlimit.ini;
 service apache2 reload
 
 #run installer
@@ -50,8 +56,8 @@ service apache2 reload
 
 ### Use
 After the installer is finished, you can open in your Browser:
-* Frontend: http://localhost:2000
-* Backend: http://localhost:2000/admin
+* Frontend: http://pimcore.jagi.intern/
+* Backend: http://pimcore.jagi.intern/admin
 
 ### Common Errors 
 

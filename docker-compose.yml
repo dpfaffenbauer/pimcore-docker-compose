@@ -24,7 +24,7 @@ services:
       - 2002:8080
 
   php:
-    image: dpfaffenbauer/pimcore:PHP7.2-apache
+    image: pimcore/pimcore:PHP7.2-apache
     container_name: pimcore-php
     volumes:
       - .:/var/www/html:cached
@@ -36,7 +36,7 @@ services:
      - redis:redis
 
   php-debug:
-    image: dpfaffenbauer/pimcore:PHP7.2-apache-debug
+    image: pimcore/pimcore:PHP7.2-apache-debug
     container_name: pimcore-debug-php
     volumes:
       - .:/var/www/html:cached
